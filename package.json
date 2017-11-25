@@ -11,10 +11,13 @@
   "license": "ISC",
   "dependencies": {
     "babel-polyfill": "^6.26.0",
+    "dat.gui": "^0.6.1",
+    "lodash": "^4.17.4",
     "mathjs": "^3.17.0",
     "paper": "^0.11.4",
     "ramda": "^0.24.1",
     "react": "^15.6.1",
+    "react-dat-gui": "^1.0.2",
     "react-dom": "^15.6.1",
     "tachyons": "^4.9.0",
     "uuid": "^3.1.0"
