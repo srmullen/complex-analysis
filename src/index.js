@@ -34,7 +34,7 @@ class Main extends Component {
             {r: 255, a: 255}, {g: 255, a: 255}, {b: 255, a: 255}
         ];
         const imageData = this.ctx.getImageData(0, 0, 500, 500);
-        const C = math.complex(params.x, params.y);
+        const C = math.complex(math.eval(params.x), math.eval(params.y));
         const R = math.eval(`(1 + sqrt(1 + 4 * ${vectorLength(C)})) / 2`);
         for (let x = 0; x < imageData.width; x++) {
             for (let y = 0; y < imageData.height; y++) {
@@ -64,6 +64,16 @@ class Main extends Component {
         const gui = new dat.GUI();
         const cxController = gui.add(params, 'x');
         const cyController = gui.add(params, 'y');
+        cxController.onChange((val) => {
+            if (!val.length) {
+                params.x = '0';
+            }
+        });
+        cyController.onChange((val) => {
+            if (!val.length) {
+                params.y = '0';
+            }
+        });
         const iterationsController = gui.add(params, 'iterations');
         gui.add({render: () => {this.drawJuliaSet()}}, 'render');
     }
@@ -71,8 +81,8 @@ class Main extends Component {
 
 function defaultParams () {
     return {
-        x: 0.0,
-        y: 1.0,
+        x: '0',
+        y: '1',
         xStep: 0.01,
         yStep: 0.01,
         iterations: 10,

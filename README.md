@@ -8,4 +8,3 @@ TODO
 - Better colors for iterations. Calculate based on max iterations.
 - Display grid lines. Layered Canvas?
 - Grid is currently upside-down.
-- math js input string for x and y.
